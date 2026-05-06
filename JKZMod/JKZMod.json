@@ -5,7 +5,7 @@
   "author": ["Jordan", "Keegan", "Zach"],
   "description": "Our CS20 Project",
   "prefix": "jkzb",
-  "main_file": "SampleJimbos.lua",
+  "main_file": "JKZMod.lua",
   "priority": 0,
   "badge_colour": "1de619",
   "badge_text_colour": "",

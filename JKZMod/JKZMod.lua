@@ -1,4 +1,4 @@
-SampleJimbos = {}
+JKZMod = {}
 
 assert(SMODS.load_file("globals.lua"))()
 
