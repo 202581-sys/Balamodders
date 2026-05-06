@@ -2,8 +2,11 @@
 "id": "modlatro",
 "name": "Modlatro",
 "display-name": "JKZ Balatro Mod",
-"author": ["Jordan, Keegan, Zach"]
-
+"author": ["Jordan, Keegan, Zach"],
+"description": "Our CS20 Project",
+"prefix": "jkzbl",
+"main_file": "main.lua",
+"version": "0.0.1",
 
 
 
