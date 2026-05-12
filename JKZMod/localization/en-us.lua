@@ -115,7 +115,7 @@ return {
                 name = "Ethan",
                 text = {
                     {
-                        "{C:mult}+#2#{} Mult",
+                        "{C:mult}+#1#{} Mult",
                     }
                 },
             }

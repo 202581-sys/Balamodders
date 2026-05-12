@@ -189,13 +189,13 @@ SMODS.Joker{
     discovered = true,                                   --is joker discovered by default.    
     effect=nil,                                          --you can specify an effect here eg. 'Mult'
     soul_pos=nil,                                        --pos of a soul sprite.
-    atlas = 'jester',                                --atlas name, single sprites are deprecated.
+    atlas = 'ethan',                                --atlas name, single sprites are deprecated.
 
     calculate = function(self,card,context)              --define calculate functions here
         if context.joker_main and context.cardarea == G.jokers then
             return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
-                mult = card.ability.extra.mult, 
-                colour = G.C.MULT
+                mult = card.ability.extra.mult,
+                colour = G.C.RED
             }
         end
     end,
