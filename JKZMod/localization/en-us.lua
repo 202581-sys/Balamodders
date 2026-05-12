@@ -110,6 +110,14 @@ return {
                         "{C:chips}+#1#{}Chips",
                     }
                 },
+            },
+             j_jkzb_ethan = {
+                name = "Ethan",
+                text = {
+                    {
+                        "{C:mult}+#2#{} Mult",
+                    }
+                },
             }
         }
     },
