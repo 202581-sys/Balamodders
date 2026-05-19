@@ -107,7 +107,7 @@ return {
                 name = "Jester",
                 text = {
                     {
-                        "{C:chips}+#1#{}Chips",
+                        "{C:chips}+#1#{} Chips",
                     }
                 },
             },
