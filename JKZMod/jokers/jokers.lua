@@ -181,7 +181,7 @@ SMODS.Joker{
     key = "ethan",                                  --name used by the joker.    
     config = { extra = { mult = 500 } },    --variables used for abilities and effects.
     pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
+    rarity = 3,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
     cost = 4,                                            --cost to buy the joker in shops.
     blueprint_compat=true,                               --does joker work with blueprint.
     eternal_compat=true,                                 --can joker be eternal.
