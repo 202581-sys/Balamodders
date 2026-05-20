@@ -101,6 +101,13 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "glutton",
+    path = "j_jester.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
     key = "ethan",
     path = "j_ethan.png",
     px = 71,
@@ -333,6 +340,67 @@ SMODS.Joker{
 
     loc_vars = function(self, info_queue, card)
         return { }
+    end
+}
+
+SMODS.Joker{
+    key = "glutton",
+    config={ },
+    pos = { x = 0, y = 0 },
+    rarity = 2,
+    cost = 4,
+    blueprint_compat = false,
+    eternal_compat = false,
+    unlocked = true,
+    discovered = true,
+    effect = nil,
+    atlas = 'glutton',
+    soul_pos = nil,
+
+loc_vars = function(self, info_queue, card)
+        
+        return {vars = {card.ability.extra.multvar}}
+    end,
+    
+    calculate = function(self, card, context)
+        if context.setting_blind  and not context.blueprint then
+            return {
+                func = function()
+                    local allowed = {
+                    ['j_gros_michel'] = true,
+                    ['j_ice_cream'] = true,
+                    ['j_diet_cola'] = true,
+                    ['j_popcorn'] = true,
+                    ['j_ramen'] = true,
+                    ['j_turtle_bean'] = true,
+                    }
+                    local destructable_jokers = {}
+                    for i, joker in ipairs(G.jokers.cards) do
+                        if joker ~= card and not SMODS.is_eternal(joker) and not joker.getting_sliced then
+                            table.insert(destructable_jokers, joker)
+                        end
+                    end
+                    local target_joker = #destructable_jokers > 0 and pseudorandom_element(destructable_jokers, pseudoseed('destroy_joker')) or nil
+                    
+                    if target_joker then
+                        target_joker.getting_sliced = true
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                target_joker:undefined({G.C.RED}, nil, 1.6)
+                                return true
+                            end
+                        }))
+                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Destroyed!", colour = G.C.RED})
+                    end
+                    return true
+                end
+            }
+        end
+        if context.cardarea == G.jokers and context.joker_main  then
+            return {
+                mult = 
+            }
+        end
     end
 }
 

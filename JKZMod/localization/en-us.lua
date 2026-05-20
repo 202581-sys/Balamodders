@@ -111,11 +111,22 @@ return {
                     }
                 },
             },
-             j_jkzb_ethan = {
+            j_jkzb_ethan = {
                 name = "Ethan",
                 text = {
                     {
                         "{C:mult}+#1#{} Mult",
+                    }
+                },
+            },
+            j_jkzb_glutton = {
+                name = "Glutton",
+                text = {
+                    {
+                        'When {C:attention}Blind{} is selected, eat one Food Joker ',
+                        'and permanently add',
+                        '{C:red}+5 Mult{}',
+                        '{C:inactive}(Currently{} {C:red}+#1#{} {C:inactive}Mult){}'
                     }
                 },
             }
