@@ -357,10 +357,18 @@ SMODS.Joker{
     atlas = 'glutton',
     soul_pos = nil,
     display_size = {
-    w = 71 * 1.5,
-    h = 95 * 1.5
+    w = 71 * 1.2,
+    h = 95 * 1.2
     },
+    
+    add_to_deck = function(self, card, from_debuff)
+        G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.config.extra_slot
+    end,
 
+    
+    remove_from_deck = function(self, card, from_debuff)
+        G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.config.extra_slot
+    end,
 loc_vars = function(self, info_queue, card)
         
         return {vars = {card.ability.extra.mult}}
