@@ -345,10 +345,10 @@ SMODS.Joker{
 
 SMODS.Joker{
     key = "glutton",
-    config={ extra = { mult = 0 }},
+    config={ extra = { mult = 0, extra_slot = 1 } },
     pos = { x = 0, y = 0 },
     rarity = 2,
-    cost = 4,
+    cost = 6,
     blueprint_compat = false,
     eternal_compat = false,
     unlocked = true,
@@ -362,13 +362,15 @@ SMODS.Joker{
     },
     
     add_to_deck = function(self, card, from_debuff)
-        G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.config.extra_slot
-    end,
+    local extra_slot = card.ability.extra and card.ability.extra.extra_slot or 0
+    G.jokers.config.card_limit = G.jokers.config.card_limit - extra_slot
+end,
 
     
     remove_from_deck = function(self, card, from_debuff)
-        G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.config.extra_slot
-    end,
+    local extra_slot = card.ability.extra and card.ability.extra.extra_slot or 0
+    G.jokers.config.card_limit = G.jokers.config.card_limit + extra_slot
+end,
 loc_vars = function(self, info_queue, card)
         
         return {vars = {card.ability.extra.mult}}
