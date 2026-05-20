@@ -345,7 +345,7 @@ SMODS.Joker{
 
 SMODS.Joker{
     key = "glutton",
-    config={ },
+    config={ extra = { mult = 0 }},
     pos = { x = 0, y = 0 },
     rarity = 2,
     cost = 4,
@@ -356,10 +356,14 @@ SMODS.Joker{
     effect = nil,
     atlas = 'glutton',
     soul_pos = nil,
+    display_size = {
+    w = 71 * 1.5,
+    h = 95 * 1.5
+    },
 
 loc_vars = function(self, info_queue, card)
         
-        return {vars = {card.ability.extra.multvar}}
+        return {vars = {card.ability.extra.mult}}
     end,
     
     calculate = function(self, card, context)
@@ -384,13 +388,14 @@ loc_vars = function(self, info_queue, card)
                     
                     if target_joker then
                         target_joker.getting_sliced = true
+                          card.ability.extra.mult = (card.ability.extra.mult or 0) + 10
                         G.E_MANAGER:add_event(Event({
                             func = function()
                                 target_joker:undefined({G.C.RED}, nil, 1.6)
                                 return true
                             end
                         }))
-                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Destroyed!", colour = G.C.RED})
+                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Eaten!", colour = G.C.RED})
                     end
                     return true
                 end
@@ -398,7 +403,8 @@ loc_vars = function(self, info_queue, card)
         end
         if context.cardarea == G.jokers and context.joker_main  then
             return {
-                mult = 
+                mult = card.ability.extra.mult,
+                colour = G.C.RED
             }
         end
     end
