@@ -132,7 +132,7 @@ return {
                 text = {
                     {
                         "{X:mult,C:mult} X#3# {} Mult if all cards",
-                        "held in hand are".
+                        "held in hand are",
                         "{C:hearts} hearts{} and/or{C:diamonds} diamonds{} ",
                     }
                 },
