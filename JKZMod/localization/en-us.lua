@@ -118,7 +118,16 @@ return {
                         "{C:mult}+#1#{} Mult",
                     }
                 },
-            }
+            },
+             j_jkzb_sample_obelisk = {
+                name = "Whiteboard",
+                text = {
+                    {
+                        "This Joker gives {X:mult,C:white} X#1# {} Mult",
+                        "for each time you've played this {C:attention}hand",
+                    }
+                },
+            },
         }
     },
     misc = {
