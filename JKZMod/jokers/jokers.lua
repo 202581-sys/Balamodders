@@ -102,7 +102,7 @@ SMODS.Atlas({
 
 SMODS.Atlas({
     key = "glutton",
-    path = "j_jester.png",
+    path = "j_glutton.png",
     px = 71,
     py = 95
 })
@@ -390,22 +390,22 @@ loc_vars = function(self, info_queue, card)
                     }
                     local destructable_jokers = {}
                     for i, joker in ipairs(G.jokers.cards) do
-                        if joker ~= card and not SMODS.is_eternal(joker) and not joker.getting_sliced then
-                            table.insert(destructable_jokers, joker)
-                        end
+                    if joker ~= card and allowed[joker.config.center.key] and not SMODS.is_eternal(joker) and not joker.getting_sliced then
+                    table.insert(destructable_jokers, joker)
+                    end
                     end
                     local target_joker = #destructable_jokers > 0 and pseudorandom_element(destructable_jokers, pseudoseed('destroy_joker')) or nil
                     
                     if target_joker then
                         target_joker.getting_sliced = true
                           card.ability.extra.mult = (card.ability.extra.mult or 0) + 10
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                target_joker:undefined({G.C.RED}, nil, 1.6)
-                                return true
-                            end
+                       G.E_MANAGER:add_event(Event({
+                        func = function()
+                        target_joker:start_dissolve({G.C.RED}, nil, 1.6)
+                        return true
+                        end
                         }))
-                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Eaten!", colour = G.C.RED})
+                        card_eval_status_text(context.blueprint_card or card, 'extra', nil, nil, nil, {message = "Yummy!", colour = G.C.RED})
                     end
                     return true
                 end
