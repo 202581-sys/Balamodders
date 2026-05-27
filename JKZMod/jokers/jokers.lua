@@ -290,7 +290,7 @@ SMODS.Joker{
 
 SMODS.Joker{
     key = "whiteboard",
-    config = card.ability.extra.Xmult,
+    card.ability.extra.Xmult,
     pos = { x = 0, y = 0 },
     rarity = 3,
     cost = 6,
