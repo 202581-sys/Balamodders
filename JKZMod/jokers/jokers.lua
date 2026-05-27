@@ -290,7 +290,7 @@ SMODS.Joker{
 
 SMODS.Joker{
     key = "whiteboard",
-    config = { extra = { x_mult = 3 } },
+    config = card.ability.extra.Xmult,
     pos = { x = 0, y = 0 },
     rarity = 3,
     cost = 6,
@@ -318,7 +318,7 @@ SMODS.Joker{
 
             if valid then
                 return {
-                    Xmult_mod = card.ability.extra.Xmult,
+                    Xmult_mod = card.ability.extra.x_mult,
                     message = "X3 Mult",
                     colour = G.C.MULT
                 }
