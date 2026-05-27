@@ -131,8 +131,9 @@ return {
                 name = "Whiteboard",
                 text = {
                     {
-                        "{X:mult} X#3# {} Mult if all cards",
-                        "held in hand are {C:hearts} hearts{} and/or {C:diamonds} diamonds{} ",
+                        "{X:mult,C:mult} X#3# {} Mult if all cards",
+                        "held in hand are".
+                        "{C:hearts} hearts{} and/or{C:diamonds} diamonds{} ",
                     }
                 },
             },
