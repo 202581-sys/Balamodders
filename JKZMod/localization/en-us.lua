@@ -111,6 +111,14 @@ return {
                     }
                 },
             },
+            j_jkzb_clown = {
+                name = "clown",
+                text = {
+                    {
+                        "{X:mult,C:mult}X#1.2# Mult",
+                    }
+                },
+            },
             j_jkzb_ethan = {
                 name = "Ethan",
                 text = {
