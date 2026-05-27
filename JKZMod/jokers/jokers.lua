@@ -290,7 +290,11 @@ SMODS.Joker{
 
 SMODS.Joker{
     key = "whiteboard",
-    card.ability.extra.Xmult,
+    config = {
+        extra = {
+            x_mult = 3
+        }
+    },
     pos = { x = 0, y = 0 },
     rarity = 3,
     cost = 6,
@@ -298,13 +302,12 @@ SMODS.Joker{
     eternal_compat = true,
     unlocked = true,
     discovered = true,
-    effect = nil,
     atlas = 'whiteboard',
-    soul_pos = nil,
 
     calculate = function(self, card, context)
-
         if context.joker_main then
+            if #G.hand.cards == 0 then return end
+
             local valid = true
 
             for _, held_card in ipairs(G.hand.cards) do
