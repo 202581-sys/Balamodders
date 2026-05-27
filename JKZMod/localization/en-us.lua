@@ -119,12 +119,12 @@ return {
                     }
                 },
             },
-             j_jkzb_sample_obelisk = {
+             j_jkzb_whiteboard = {
                 name = "Whiteboard",
                 text = {
                     {
-                        "This Joker gives {X:mult,C:white} X#1# {} Mult",
-                        "for each time you've played this {C:attention}hand",
+                        "{X:mult} X#3# {} Mult if all cards",
+                        "held in hand are {C:hearts} hearts{} and/or {C:diamonds} diamonds{} ",
                     }
                 },
             },
