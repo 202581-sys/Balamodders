@@ -111,7 +111,7 @@ return {
                     }
                 },
             },
-             j_jkzb_ethan = {
+            j_jkzb_ethan = {
                 name = "Ethan",
                 text = {
                     {
@@ -128,6 +128,18 @@ return {
                     }
                 },
             },
+            j_jkzb_glutton = {
+                name = "Glutton",
+                text = {
+                    {
+                        'When {C:attention}Blind{} is selected, eat one Food Joker ',
+                        'and permanently add',
+                        '{C:red}+10 Mult{}',
+                        '{C:inactive}(Currently{} {C:red}+#1#{} {C:inactive}Mult){}',
+                        '{C:red}-1{} Joker slots'
+                    }
+                },
+            }
         }
     },
     misc = {
