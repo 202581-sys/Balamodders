@@ -115,7 +115,7 @@ return {
                 name = "Clown",
                 text = {
                     {
-                        "{X:mult,C:white}X#1.2# Mult",
+                        "{X:mult,C:white}X#1#{} Mult",
                     }
                 },
             },
@@ -131,7 +131,7 @@ return {
                 name = "Whiteboard",
                 text = {
                     {
-                        "{X:mult,C:white} X#3# {} Mult if all cards",
+                        "{X:mult,C:white} X#1# {} Mult if all cards",
                         "held in hand are",
                         "{C:hearts} hearts{} and/or{C:diamonds} diamonds{} ",
                     }
