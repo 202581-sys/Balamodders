@@ -128,15 +128,19 @@ return {
                 },
             },
              j_jkzb_whiteboard = {
-                name = "Whiteboard",
-                text = {
-                    {
+             name = "Whiteboard",
+             config = { extra = { Xmult = 3 } }, -- this defines the value
+             loc_vars = function(self, info_queue, card)
+                    return { vars = { card.ability.extra.Xmult } }
+             end,
+             text = {
+                         {
                         "{X:mult,C:white} X#1# {} Mult if all cards",
                         "held in hand are",
                         "{C:hearts} hearts{} and/or{C:diamonds} diamonds{} ",
-                    }
-                },
-            },
+                         }
+                    },
+            }
             j_jkzb_glutton = {
                 name = "Glutton",
                 text = {
