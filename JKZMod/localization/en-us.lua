@@ -128,18 +128,32 @@ return {
                 },
             },
              j_jkzb_whiteboard = {
-             name = "Whiteboard",
-             config = { extra = { Xmult = 3 } }, -- this defines the value
-             loc_vars = function(self, info_queue, card)
-                    return { vars = { card.ability.extra.Xmult } }
-             end,
-             text = {
-                         {
-                        "{X:mult,C:white} X#1# {} Mult if all cards",
+                name = "Whiteboard",
+
+                config = {
+                    extra = {
+                        Xmult = 3
+                    }
+                },
+
+                loc_vars = function(self, info_queue, card)
+                    return {
+                        vars = { self.config.extra.Xmult }
+                    }
+                end,
+
+                loc_txt = {
+                    name = "Whiteboard",
+                    text = {
+                        "{X:mult,C:white} X#1#{} Mult if all cards",
                         "held in hand are",
-                        "{C:hearts} hearts{} and/or{C:diamonds} diamonds{} ",
-                         }
-                    },
+                        "{C:hearts}Hearts{} and/or {C:diamonds}Diamonds{}"
+                    }
+                },
+
+                rarity = 1,
+                cost = 5,
+                blueprint_compat = true,
             }
             j_jkzb_glutton = {
                 name = "Glutton",
