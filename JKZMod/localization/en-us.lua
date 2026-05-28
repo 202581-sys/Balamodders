@@ -127,34 +127,24 @@ return {
                     }
                 },
             },
-             j_jkzb_whiteboard = {
-                name = "Whiteboard",
-
-                config = {
-                    extra = {
-                        Xmult = 3
-                    }
-                },
-
-                loc_vars = function(self, info_queue, card)
-                    return {
-                        vars = { self.config.extra.Xmult }
-                    }
-                end,
+             SMODS.JokerLoc({
+                key = "whiteboard",
 
                 loc_txt = {
                     name = "Whiteboard",
                     text = {
-                        "{X:mult,C:white} X#1#{} Mult if all cards",
+                        "{X:mult,C:white}X#1#{} Mult if all cards",
                         "held in hand are",
                         "{C:hearts}Hearts{} and/or {C:diamonds}Diamonds{}"
                     }
                 },
 
-                rarity = 1,
-                cost = 5,
-                blueprint_compat = true,
-            }
+                loc_vars = function(self, info_queue, card)
+                    return {
+                        vars = { 3 } -- must match your config value OR dynamically read if needed
+                    }
+                end
+            })
             j_jkzb_glutton = {
                 name = "Glutton",
                 text = {
