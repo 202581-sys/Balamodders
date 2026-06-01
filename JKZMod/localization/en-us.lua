@@ -127,7 +127,7 @@ return {
                     }
                 },
             },
-             SMODS.JokerLoc({
+             SMODS.JokerLoc{
                 key = "whiteboard",
 
                 loc_txt = {
@@ -138,13 +138,6 @@ return {
                         "{C:hearts}Hearts{} and/or {C:diamonds}Diamonds{}"
                     }
                 },
-
-                loc_vars = function(self, info_queue, card)
-                    return {
-                        vars = { 3 } -- must match your config value OR dynamically read if needed
-                    }
-                end
-            })
             j_jkzb_glutton = {
                 name = "Glutton",
                 text = {
