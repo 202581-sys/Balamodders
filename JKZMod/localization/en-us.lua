@@ -127,10 +127,7 @@ return {
                     }
                 },
             },
-             SMODS.JokerLoc{
-                key = "whiteboard",
-
-                loc_txt = {
+             j_jkzb_whiteboard{
                     name = "Whiteboard",
                     text = {
                         "{X:mult,C:white}X#1#{} Mult if all cards",
