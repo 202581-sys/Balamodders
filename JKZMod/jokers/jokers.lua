@@ -317,7 +317,7 @@ SMODS.Joker{
 
             if valid then
                 return {
-                    Xmult_mod = card.ability.extra.x_mult,
+                    x_mult = card.ability.extra.x_mult,
                     message = "X3 Mult",
                     colour = G.C.MULT
                 }
