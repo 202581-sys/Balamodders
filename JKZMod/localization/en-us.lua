@@ -127,7 +127,7 @@ return {
                     }
                 },
             },
-             j_jkzb_whiteboard{
+             j_jkzb_whiteboard = {
                     name = "Whiteboard",
                     text = {
                         "{X:mult,C:white}X#1#{} Mult if all cards",
