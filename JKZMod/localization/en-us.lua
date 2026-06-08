@@ -130,7 +130,7 @@ return {
              j_jkzb_whiteboard = {
                     name = "Whiteboard",
                     text = {
-                        "{X:mult,C:white}X#1#{} Mult if all cards",
+                        "{X:mult,C:white} X#1# {} Mult if all cards",
                         "held in hand are",
                         "{C:hearts}Hearts{} and/or {C:diamonds}Diamonds{}"
                     }

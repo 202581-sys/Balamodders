@@ -290,11 +290,7 @@ SMODS.Joker{
 
 SMODS.Joker{
     key = "whiteboard",
-    config = {
-        extra = {
-            x_mult = 3
-        }
-    },
+    config = { extra = { x_mult = 3 } }
     pos = { x = 0, y = 0 },
     rarity = 2,
     cost = 6,
