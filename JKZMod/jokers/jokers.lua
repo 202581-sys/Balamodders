@@ -216,7 +216,7 @@ SMODS.Joker{
         if context.joker_main and context.cardarea == G.jokers then
             return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
                 x_mult = card.ability.extra.x_mult, 
-                colour = G.C.MULT
+                colour = G.C.RED
             }
         end
     end,
@@ -318,7 +318,7 @@ SMODS.Joker{
             if valid then
                 return {
                     x_mult = card.ability.extra.x_mult,
-                    colour = G.C.MULT
+                    colour = G.C.RED
                 }
             end
         end
