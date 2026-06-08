@@ -134,7 +134,7 @@ return {
                         "{X:mult,C:white} X#1# {} Mult if all cards",
                         "held in hand are",
                         "{C:hearts}Hearts{} and/or {C:diamonds}Diamonds{}",
-                        },
+                        }
                     },
                 },
             j_jkzb_glutton = {
