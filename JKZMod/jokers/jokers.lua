@@ -171,85 +171,85 @@ SMODS.Joker{
 }
 
 SMODS.Joker{
-    key = "jester",                                  --name used by the joker.    
-    config = { extra = { chips = 50 } },    --variables used for abilities and effects.
-    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
-    cost = 4,                                            --cost to buy the joker in shops.
-    blueprint_compat=true,                               --does joker work with blueprint.
-    eternal_compat=true,                                 --can joker be eternal.
-    unlocked = true,                                     --is joker unlocked by default.
-    discovered = true,                                   --is joker discovered by default.    
-    effect=nil,                                          --you can specify an effect here eg. 'Mult'
-    soul_pos=nil,                                        --pos of a soul sprite.
-    atlas = 'jester',                                --atlas name, single sprites are deprecated.
+    key = "jester",                         
+    config = { extra = { chips = 50 } },    
+    pos = { x = 0, y = 0 },                 
+    rarity = 1,                             
+    cost = 4,                               
+    blueprint_compat=true,                  
+    eternal_compat=true,                    
+    unlocked = true,                        
+    discovered = true,                      
+    effect=nil,                             
+    soul_pos=nil,                           
+    atlas = 'jester',                       
 
-    calculate = function(self,card,context)              --define calculate functions here
+    calculate = function(self,card,context) 
         if context.joker_main and context.cardarea == G.jokers then
-            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
+            return {                                     
                 chips = card.ability.extra.chips, 
                 colour = G.C.CHIPS
             }
         end
     end,
 
-    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
+    loc_vars = function(self, info_queue, card)          
         return { vars = { card.ability.extra.chips }, key = self.key }
     end
 }
 
 SMODS.Joker{
-    key = "clown",                                  --name used by the joker.    
-    config = { extra = { x_mult = 1.2 } },    --variables used for abilities and effects.
-    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 1,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
-    cost = 2,                                            --cost to buy the joker in shops.
-    blueprint_compat=true,                               --does joker work with blueprint.
-    eternal_compat=true,                                 --can joker be eternal.
-    unlocked = true,                                     --is joker unlocked by default.
-    discovered = true,                                   --is joker discovered by default.    
-    effect=nil,                                          --you can specify an effect here eg. 'Mult'
-    soul_pos=nil,                                        --pos of a soul sprite.
-    atlas = 'clown',                                --atlas name, single sprites are deprecated.
+    key = "clown",                            
+    config = { extra = { x_mult = 1.2 } },    
+    pos = { x = 0, y = 0 },                   
+    rarity = 1,                               
+    cost = 2,                                 
+    blueprint_compat=true,                    
+    eternal_compat=true,                      
+    unlocked = true,                          
+    discovered = true,                        
+    effect=nil,                               
+    soul_pos=nil,                             
+    atlas = 'clown',                          
 
-    calculate = function(self,card,context)              --define calculate functions here
+    calculate = function(self,card,context)   
         if context.joker_main and context.cardarea == G.jokers then
-            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
+            return {                                    
                 x_mult = card.ability.extra.x_mult, 
                 colour = G.C.RED
             }
         end
     end,
 
-    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
+    loc_vars = function(self, info_queue, card)          
         return { vars = { card.ability.extra.x_mult }, key = self.key }
     end
 }
 
 SMODS.Joker{
-    key = "ethan",                                  --name used by the joker.    
-    config = { extra = { mult = 500 } },    --variables used for abilities and effects.
-    pos = { x = 0, y = 0 },                              --pos in spritesheet 0,0 for single sprites or the first sprite in the spritesheet.
-    rarity = 3,                                          --rarity 1=common, 2=uncommen, 3=rare, 4=legendary
-    cost = 15,                                           --cost to buy the joker in shops.
-    blueprint_compat=true,                               --does joker work with blueprint.
-    eternal_compat=true,                                 --can joker be eternal.
-    unlocked = true,                                     --is joker unlocked by default.
-    discovered = true,                                   --is joker discovered by default.    
-    effect=nil,                                          --you can specify an effect here eg. 'Mult'
-    soul_pos=nil,                                        --pos of a soul sprite.
-    atlas = 'ethan',                                --atlas name, single sprites are deprecated.
+    key = "ethan",                         
+    config = { extra = { mult = 500 } },   
+    pos = { x = 0, y = 0 },                
+    rarity = 3,                            
+    cost = 15,                             
+    blueprint_compat=true,                 
+    eternal_compat=true,                   
+    unlocked = true,                       
+    discovered = true,                     
+    effect=nil,                            
+    soul_pos=nil,                          
+    atlas = 'ethan',                       
 
-    calculate = function(self,card,context)              --define calculate functions here
+    calculate = function(self,card,context)              
         if context.joker_main and context.cardarea == G.jokers then
-            return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
+            return {                                    
                 mult = card.ability.extra.mult,
                 colour = G.C.RED
             }
         end
     end,
 
-    loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
+    loc_vars = function(self, info_queue, card)          
         return { vars = { card.ability.extra.mult }, key = self.key }
     end
 }
