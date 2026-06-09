@@ -111,11 +111,41 @@ return {
                     }
                 },
             },
-             j_jkzb_ethan = {
+            j_jkzb_clown = {
+                name = "Clown",
+                text = {
+                    {
+                        "{X:mult,C:white}X#1#{} Mult",
+                    }
+                },
+            },
+            j_jkzb_ethan = {
                 name = "Ethan",
                 text = {
                     {
                         "{C:mult}+#1#{} Mult",
+                    }
+                },
+            },
+            j_jkzb_whiteboard = {
+                name = "Whiteboard",
+                text = {
+                    {
+                        "{X:mult,C:white} X#1# {} Mult if all cards",
+                        "held in hand are",
+                        "{C:hearts}Hearts{} and/or {C:diamonds}Diamonds{}",
+                    }
+                },
+            },
+            j_jkzb_glutton = {
+                name = "Glutton",
+                text = {
+                    {
+                        'When {C:attention}Blind{} is selected, eat one Food Joker ',
+                        'and permanently add',
+                        '{C:red}+10 Mult{}',
+                        '{C:inactive}(Currently{} {C:red}+#1#{} {C:inactive}Mult){}',
+                        '{C:red}-1{} Joker slots'
                     }
                 },
             }
