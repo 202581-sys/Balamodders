@@ -222,7 +222,7 @@ SMODS.Joker{
     end,
 
     loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
-        return { vars = { card.ability.extra.chips }, key = self.key }
+        return { vars = { card.ability.x_mult }, key = self.key }
     end
 }
 
