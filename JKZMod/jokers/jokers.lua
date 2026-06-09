@@ -222,8 +222,8 @@ SMODS.Joker{
     end,
 
     loc_vars = function(self, info_queue, card)          
-        return { vars = { card.ability.extra.chips }, key = self.key }
-    end
+        return { vars = { card.ability.extra.x_mult } }
+    end,
 }
 
 SMODS.Joker{
