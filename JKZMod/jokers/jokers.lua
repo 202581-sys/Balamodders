@@ -216,13 +216,13 @@ SMODS.Joker{
         if context.joker_main and context.cardarea == G.jokers then
             return {                                     -- returns total chips from joker to be used in scoring, no need to show message in joker_main phase, game does it for us.
                 x_mult = card.ability.extra.x_mult, 
-                colour = G.C.RED
+                colour = G.C.MULT
             }
         end
     end,
 
     loc_vars = function(self, info_queue, card)          --defines variables to use in the UI. you can use #1# for example to show the chips variable
-        return { vars = { card.ability.x_mult }, key = self.key }
+        return { vars = { card.ability.extra.chips }, key = self.key }
     end
 }
 
@@ -290,9 +290,13 @@ SMODS.Joker{
 
 SMODS.Joker{
     key = "whiteboard",
-    config = { extra = { x_mult = 3 } },
+    config = {
+        extra = {
+            x_mult = 3
+        }
+    },
     pos = { x = 0, y = 0 },
-    rarity = 2,
+    rarity = 3,
     cost = 6,
     blueprint_compat = true,
     eternal_compat = true,
@@ -317,16 +321,13 @@ SMODS.Joker{
 
             if valid then
                 return {
-                    x_mult = card.ability.extra.x_mult,
-                    colour = G.C.RED
+                    Xmult_mod = card.ability.extra.x_mult,
+                    message = "X3 Mult",
+                    colour = G.C.MULT
                 }
             end
         end
-    end,
-    
-    loc_vars = function(self, info_queue, card)
-        return { vars = { card.ability.extra.x_mult } }
-    end,
+    end
 }
 
 SMODS.Joker{
