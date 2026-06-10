@@ -258,7 +258,7 @@ SMODS.Joker{
 
     calculate = function(self,card,context)   
         if context.joker_main and context.cardarea == G.jokers then
-            if  SMODS.pseudorandom.probability('jkzb_gambler_joker', 1, 4) then
+            if  pseudorandom('jkzb_gambler_joker')< G.GAME.probabilities.normal/4 then
             return {
                 x_mult = card.ability.extra.x_mult, 
                 colour = G.C.RED
