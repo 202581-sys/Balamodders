@@ -656,3 +656,31 @@ SMODS.Joker{
         return { vars = { card.ability.extra.chips, card.ability.extra.mult }, key = self.key }
     end
 }
+
+--[[ currently commented, as it is incomplete
+SMODS.Joker{ 
+    key = "trebuchet",
+    config = { extra = { x_mult = 1.2 } },
+    pos = { x = 0, y = 0 },
+    rarity = 2,
+    cost = 5,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    effect = nil,
+    atlas = 'trebuchet',
+    soul_pos = nil,
+
+    calculate = function(self,card,context)                 --define calculate functions here
+        if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
+            if context.other_card:get_id() == 2 or 3 then    -- played card is a 2 or 3 by rank
+                return {                                    
+                    x_mult = card.ability.extra.x_mult, 
+                    colour = G.C.RED
+                }
+            end
+        end
+    end,
+}
+--]]
