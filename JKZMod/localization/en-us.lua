@@ -127,6 +127,15 @@ return {
                     }
                 },
             },
+             j_jkzb_gambler = {
+                name = "Gambler",
+                text = {
+                    {
+                        "1 in 4 chance for",
+                        "{C:mult}+#1#{} Mult",
+                    }
+                },
+            },
             j_jkzb_whiteboard = {
                 name = "Whiteboard",
                 text = {
