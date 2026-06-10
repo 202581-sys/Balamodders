@@ -123,7 +123,8 @@ return {
                 name = "Gambler",
                 text = {
                     {
-                        "1 in 4 chance for {X:mult,C:white}X#1#{} Mult",
+                        "1 in 4 chance for" ,
+                        "{X:mult,C:white}X#1#{} Mult",
                     }
                 },
             },

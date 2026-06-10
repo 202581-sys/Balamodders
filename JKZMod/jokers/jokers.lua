@@ -108,6 +108,13 @@ SMODS.Atlas({
 })
 
 SMODS.Atlas({
+    key = "gambler",
+    path = "j_jester.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
     key = "glutton",
     path = "j_glutton.png",
     px = 71,
@@ -236,30 +243,37 @@ SMODS.Joker{
 }
 
 SMODS.Joker{
-    key = "gambler",                            
-    config = { extra = { x_mult = 4 } },    
-    pos = { x = 0, y = 0 },                   
-    rarity = 1,                               
-    cost = 2,                                 
-    blueprint_compat=true,                    
-    eternal_compat=true,                      
-    unlocked = true,                          
-    discovered = true,                        
-    effect=nil,                               
-    soul_pos=nil,                             
-    atlas = 'jester',                          
+    key = "gambler",
+    config = { extra = { x_mult = 4 } },
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    cost = 2,
+    blueprint_compat=true,
+    eternal_compat=true,
+    unlocked = true,
+    discovered = true,
+    effect=nil,
+    soul_pos=nil,
+    atlas = 'gambler',
 
     calculate = function(self,card,context)   
         if context.joker_main and context.cardarea == G.jokers then
-            return {                                    
+            if  SMODS.pseudorandom.probability('jkzb_gambler_joker', 1, 4) then
+            return {
                 x_mult = card.ability.extra.x_mult, 
                 colour = G.C.RED
             }
+        else
+            return {
+                message = "Nope!" ,
+                colour = G.C.FILTER
+            }
+        end
         end
     end,
 
     loc_vars = function(self, info_queue, card)          
-        return { vars = { card.ability.extra.x_mult } }
+        return { vars = { card.ability.extra.x_mult, G.GAME.probabilities.normal } }
     end
 }
 
