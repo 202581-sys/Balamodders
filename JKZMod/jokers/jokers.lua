@@ -128,6 +128,15 @@ SMODS.Atlas({
     py = 95
 })
 
+--[[ part of trebuchet, incomplete
+SMODS.Atlas({
+    key = "trebuchet",
+    path = "j_whiteboard.png",
+    px = 71,
+    py = 95
+})
+--]]
+
 
 SMODS.Joker{
     key = "sample_wee",                                     --name used by the joker.    
