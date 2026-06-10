@@ -119,6 +119,14 @@ return {
                     }
                 },
             },
+            j_jkzb_gambler = {
+                name = "Gambler",
+                text = {
+                    {
+                        "1 in 4 chance for {X:mult,C:white}X#1#{} Mult",
+                    }
+                },
+            },
             j_jkzb_ethan = {
                 name = "Ethan",
                 text = {

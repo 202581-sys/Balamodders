@@ -227,6 +227,34 @@ SMODS.Joker{
 }
 
 SMODS.Joker{
+    key = "gambler",                            
+    config = { extra = { x_mult = 4 } },    
+    pos = { x = 0, y = 0 },                   
+    rarity = 1,                               
+    cost = 2,                                 
+    blueprint_compat=true,                    
+    eternal_compat=true,                      
+    unlocked = true,                          
+    discovered = true,                        
+    effect=nil,                               
+    soul_pos=nil,                             
+    atlas = 'jester',                          
+
+    calculate = function(self,card,context)   
+        if context.joker_main and context.cardarea == G.jokers then
+            return {                                    
+                x_mult = card.ability.extra.x_mult, 
+                colour = G.C.RED
+            }
+        end
+    end,
+
+    loc_vars = function(self, info_queue, card)          
+        return { vars = { card.ability.extra.x_mult } }
+    end
+}
+
+SMODS.Joker{
     key = "ethan",                         
     config = { extra = { mult = 500 } },   
     pos = { x = 0, y = 0 },                
