@@ -22,8 +22,9 @@ function return_JokerValues() -- not used, just here to demonstrate how you coul
         }
     end
 end
-
-SMODS.Atlas({
+--[[the atlas points to the image of the joker. The real game has only 
+one file for all the jokers, but we made  them individual]]
+SMODS.Atlas({  
     key = "sample_wee",
     path = "j_sample_wee.png",
     px = 71,
@@ -258,7 +259,7 @@ SMODS.Joker{
 
     calculate = function(self,card,context)   
         if context.joker_main and context.cardarea == G.jokers then
-            if  pseudorandom('jkzb_gambler_joker')< G.GAME.probabilities.normal/4 then
+            if  pseudorandom('jkzb_gambler_joker')< G.GAME.probabilities.normal/4 then --randomizes 1/4 chance
             return {
                 x_mult = card.ability.extra.x_mult, 
                 colour = G.C.RED
@@ -511,10 +512,10 @@ loc_vars = function(self, info_queue, card)
     end,
     
     calculate = function(self, card, context)
-        if context.setting_blind  and not context.blueprint then
+        if context.setting_blind  and not context.blueprint then 
             return {
                 func = function()
-                    local allowed = {
+                    local allowed = { --makes it so that only food jokers can be eaten by glutton
                     ['j_gros_michel'] = true,
                     ['j_ice_cream'] = true,
                     ['j_diet_cola'] = true,
