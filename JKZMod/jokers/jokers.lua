@@ -22,8 +22,9 @@ function return_JokerValues() -- not used, just here to demonstrate how you coul
         }
     end
 end
-
-SMODS.Atlas({
+--[[the atlas points to the image of the joker. The real game has only 
+one file for all the jokers, but we made  them individual]]
+SMODS.Atlas({  
     key = "sample_wee",
     path = "j_sample_wee.png",
     px = 71,
@@ -95,13 +96,20 @@ SMODS.Atlas({
 
 SMODS.Atlas({
     key = "clown",
-    path = "j_jester.png",
+    path = "j_clown.png",
     px = 71,
     py = 95
 })
 
 SMODS.Atlas({
     key = "jester",
+    path = "j_jester.png",
+    px = 71,
+    py = 95
+})
+
+SMODS.Atlas({
+    key = "gambler",
     path = "j_jester.png",
     px = 71,
     py = 95
@@ -232,6 +240,41 @@ SMODS.Joker{
 
     loc_vars = function(self, info_queue, card)          
         return { vars = { card.ability.extra.x_mult } }
+    end
+}
+
+SMODS.Joker{
+    key = "gambler",
+    config = { extra = { x_mult = 4 } },
+    pos = { x = 0, y = 0 },
+    rarity = 1,
+    cost = 2,
+    blueprint_compat=true,
+    eternal_compat=true,
+    unlocked = true,
+    discovered = true,
+    effect=nil,
+    soul_pos=nil,
+    atlas = 'gambler',
+
+    calculate = function(self,card,context)   
+        if context.joker_main and context.cardarea == G.jokers then
+            if  pseudorandom('jkzb_gambler_joker')< G.GAME.probabilities.normal/4 then --randomizes 1/4 chance
+            return {
+                x_mult = card.ability.extra.x_mult, 
+                colour = G.C.RED
+            }
+        else
+            return {
+                message = "Nope!" ,
+                colour = G.C.FILTER
+            }
+        end
+        end
+    end,
+
+    loc_vars = function(self, info_queue, card)          
+        return { vars = { card.ability.extra.x_mult, G.GAME.probabilities.normal } }
     end
 }
 
@@ -469,10 +512,10 @@ loc_vars = function(self, info_queue, card)
     end,
     
     calculate = function(self, card, context)
-        if context.setting_blind  and not context.blueprint then
+        if context.setting_blind  and not context.blueprint then 
             return {
                 func = function()
-                    local allowed = {
+                    local allowed = { --makes it so that only food jokers can be eaten by glutton
                     ['j_gros_michel'] = true,
                     ['j_ice_cream'] = true,
                     ['j_diet_cola'] = true,
@@ -690,6 +733,6 @@ SMODS.Joker{
                 }
             end
         end
-    end,
+    end
 }
 --]]
