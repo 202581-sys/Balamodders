@@ -145,13 +145,6 @@ SMODS.Atlas({
 })
 --]]
 
-SMODS.Atlas {
-    key = "edition_atlas",
-    path = "j_ethan.png", 
-    px = 71,              
-    py = 95               
-}
-
 
 SMODS.Joker{
     key = "sample_wee",                                     --name used by the joker.    
@@ -743,33 +736,3 @@ SMODS.Joker{
     end
 }
 --]]
-
-SMODS.Edition {
-    key = "my_custom_edition",
-    shader = "polychrome",
-    name = "Radiant Edition",
-
-    atlas = "edition_atlas",
-    pos = { x = 0, y = 0 },
-
-    sound = "generic",
-
-    extra = {
-        mult = 20,
-        chips = 50
-    },
-
-    cost = 15,
-
-    calculate = function(self, card, context)
-        -- optional logic
-    end,
-
-    loc_txt = {
-        name = "Radiant",
-        text = {
-            "{C:mult}+20{} Mult",
-            "{C:chips}+50{} Chips"
-        }
-    }
-}
