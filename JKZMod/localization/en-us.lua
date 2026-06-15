@@ -107,7 +107,7 @@ return {
                 name = "Jester",
                 text = {
                     {
-                        "{C:chips}+#1#{} Chips",
+                        "{C:chips}+#1#{} Chips",--only says +chips
                     }
                 },
             },
@@ -115,7 +115,7 @@ return {
                 name = "Clown",
                 text = {
                     {
-                        "{X:mult,C:white}X#1#{} Mult",
+                        "{X:mult,C:white}X#1#{} Mult", --only says Xmult
                     }
                 },
             },
@@ -132,7 +132,7 @@ return {
                 name = "Ethan",
                 text = {
                     {
-                        "{C:mult}+#1#{} Mult",
+                        "{C:mult}+#1#{} Mult", --only says +mult
                     }
                 },
             },
