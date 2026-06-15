@@ -147,9 +147,9 @@ SMODS.Atlas({
 
 SMODS.Atlas {
     key = "edition_atlas",
-    path = "j_ethan.png",
-    px = 71,
-    py = 95
+    path = "j_ethan.png", 
+    px = 71,              
+    py = 95               
 }
 
 
@@ -744,37 +744,32 @@ SMODS.Joker{
 }
 --]]
 
-        SMODS.Edition {
-            key = "my_custom_edition",
-            name = "Radiant Edition",
-            -- Sound and sprite atlas settings
-            sound = "generic", -- Sound played when applied
-            -- Stat adjustments (e.g., multiplier, chips, etc.)
-            extra = {
-                mult = 20,
-                chips = 50
-            },
-            -- Rarity/cost in the shop
-            cost = 15,
-            -- Visuals: defines how the color/shader looks in hex
-            config = {
-                extra = true,
-                mult = 20
-            },
-            
-            -- Define how the shader applies (uses Love2d logic)
-            calculate = function(self, card, context)
-                if context.other_joker then
-                    -- Your logic here
-                end
-            end,
-            
-            -- Localization text for the game
-            loc_txt = {
-                name = "Radiant",
-                text = {
-                    " {C:mult,T:}+20{} Mult",
-                    " {C:chips,T:}+50{} Chips"
-                }
-            }
+SMODS.Edition {
+    key = "my_custom_edition",
+    shader = "polychrome",
+    name = "Radiant Edition",
+
+    atlas = "edition_atlas",
+    pos = { x = 0, y = 0 },
+
+    sound = "generic",
+
+    extra = {
+        mult = 20,
+        chips = 50
+    },
+
+    cost = 15,
+
+    calculate = function(self, card, context)
+        -- optional logic
+    end,
+
+    loc_txt = {
+        name = "Radiant",
+        text = {
+            "{C:mult}+20{} Mult",
+            "{C:chips}+50{} Chips"
         }
+    }
+}
