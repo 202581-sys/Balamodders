@@ -136,14 +136,13 @@ SMODS.Atlas({
     py = 95
 })
 
---[[ part of trebuchet, incomplete
 SMODS.Atlas({
     key = "trebuchet",
-    path = "j_whiteboard.png",
+    path = "j_trebuchet.png",
     px = 71,
     py = 95
 })
---]]
+
 
 
 SMODS.Joker{
@@ -709,7 +708,6 @@ SMODS.Joker{
     end
 }
 
---[[ currently commented, as it is incomplete
 SMODS.Joker{ 
     key = "trebuchet",
     config = { extra = { x_mult = 1.2 } },
@@ -735,4 +733,3 @@ SMODS.Joker{
         end
     end
 }
---]]
