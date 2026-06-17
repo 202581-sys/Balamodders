@@ -724,7 +724,7 @@ SMODS.Joker{
 
     calculate = function(self,card,context)                 --define calculate functions here
         if context.individual and context.cardarea == G.play then -- if we are in card scoring phase, and we are on individual cards
-            if context.other_card:get_id() == 2 or 3 then    -- played card is a 2 or 3 by rank
+            if context.other_card:get_id() == 2 or context.other_card:get_id() == 3 then    -- played card is a 2 or 3 by rank
                 return {                                    
                     x_mult = card.ability.extra.x_mult, 
                     colour = G.C.RED
