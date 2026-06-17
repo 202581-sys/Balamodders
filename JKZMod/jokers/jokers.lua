@@ -143,6 +143,12 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "perkalator",
+    path = "j_perkalator.png",
+    px = 71,
+    py = 95
+})
 
 
 SMODS.Joker{
@@ -712,8 +718,8 @@ SMODS.Joker{
     key = "trebuchet",
     config = { extra = { x_mult = 1.2 } },
     pos = { x = 0, y = 0 },
-    rarity = 2,
-    cost = 5,
+    rarity = 3,
+    cost = 10,
     blueprint_compat = true,
     eternal_compat = true,
     unlocked = true,
@@ -732,4 +738,54 @@ SMODS.Joker{
             end
         end
     end
+}
+
+SMODS.Joker{ 
+    key = "perkalator",
+    pos = { x = 0, y = 0 },
+    rarity = 3,
+    cost = 10,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    effect = nil,
+    atlas = 'perkalator',
+    soul_pos = nil,
+
+    calculate = function(self, card, context)
+
+        if context.ending_shop then
+
+            local consumables = {}
+
+            for _, v in ipairs(G.consumeables.cards) do
+                table.insert(consumables, v)
+            end
+
+            if #consumables > 0 then
+
+                -- 25% chance to fail
+                if pseudorandom('perkalator_fail') < 0.25 then
+                    return {
+                        message = "Aw Dang It!"
+                    }
+                end
+
+                local chosen = pseudorandom_element(
+                    consumables,
+                    pseudoseed('perkalator')
+                )
+
+                local copy = copy_card(chosen)
+
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    G.consumeables:emplace(copy)
+
+                    return {
+                        message = "Copied!"
+                    }
+                end
+            end
+        end
 }

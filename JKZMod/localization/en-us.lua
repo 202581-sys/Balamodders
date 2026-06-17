@@ -158,6 +158,22 @@ return {
                     }
                 },
             }
+            j_jkzb_trebuchet = {
+                name = "Trebuchet",
+                text = {
+                    {
+                        'Trebuchet placeholder'
+                    }
+                },
+            }
+            j_jkzb_perkalator = {
+                name = "Perkalator",
+                text = {
+                    {
+                        'Perkalator placeholder'
+                    }
+                },
+            }
         }
     },
     misc = {
