@@ -788,4 +788,5 @@ SMODS.Joker{
             end
         end
     end
+end
 }
