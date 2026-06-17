@@ -157,7 +157,7 @@ return {
                         '{C:red}-1{} Joker slots'
                     }
                 },
-            }
+            },
             j_jkzb_trebuchet = {
                 name = "Trebuchet",
                 text = {
@@ -165,7 +165,7 @@ return {
                         'Trebuchet placeholder'
                     }
                 },
-            }
+            },
             j_jkzb_perkalator = {
                 name = "Perkalator",
                 text = {
@@ -173,7 +173,7 @@ return {
                         'Perkalator placeholder'
                     }
                 },
-            }
+            },
         }
     },
     misc = {

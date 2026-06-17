@@ -755,37 +755,37 @@ SMODS.Joker{
 
     calculate = function(self, card, context)
 
-        if context.ending_shop then
+    if context.ending_shop then
 
-            local consumables = {}
+        local consumables = {}
 
-            for _, v in ipairs(G.consumeables.cards) do
-                table.insert(consumables, v)
+        for _, v in ipairs(G.consumeables.cards) do
+            table.insert(consumables, v)
+        end
+
+        if #consumables > 0 then
+
+            -- 25% chance to do nothing
+            if pseudorandom('perkalator_fail') < 0.25 then
+                return {
+                    message = "Miss!"
+                }
             end
 
-            if #consumables > 0 then
+            local chosen = pseudorandom_element(
+                consumables,
+                pseudoseed('perkalator')
+            )
 
-                -- 25% chance to fail
-                if pseudorandom('perkalator_fail') < 0.25 then
-                    return {
-                        message = "Aw Dang It!"
-                    }
-                end
+            local copy = copy_card(chosen)
 
-                local chosen = pseudorandom_element(
-                    consumables,
-                    pseudoseed('perkalator')
-                )
+            if copy and #G.consumeables.cards < G.consumeables.config.card_limit then
+                G.consumeables:emplace(copy)
 
-                local copy = copy_card(chosen)
-
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
-                    G.consumeables:emplace(copy)
-
-                    return {
-                        message = "Copied!"
-                    }
-                end
+                return {
+                    message = "Copied!"
+                }
             end
         end
+    end
 }
