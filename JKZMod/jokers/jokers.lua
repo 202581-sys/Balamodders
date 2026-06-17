@@ -271,7 +271,7 @@ SMODS.Joker{
             }
         else
             return {
-                message = "Nope!" ,
+                message = "Aw Dang It!" ,
                 colour = G.C.FILTER
             }
         end
@@ -716,7 +716,7 @@ SMODS.Joker{
 
 SMODS.Joker{ 
     key = "trebuchet",
-    config = { extra = { x_mult = 1.2 } },
+    config = { extra = { x_mult = 1.5 } },
     pos = { x = 0, y = 0 },
     rarity = 3,
     cost = 10,
@@ -768,7 +768,7 @@ SMODS.Joker{
             -- 25% chance to do nothing
             if pseudorandom('perkalator_fail') < 0.25 then
                 return {
-                    message = "Miss!"
+                    message = "Aw Dang It!"
                 }
             end
 
