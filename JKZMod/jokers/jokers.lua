@@ -138,14 +138,14 @@ SMODS.Atlas({
 
 SMODS.Atlas({
     key = "trebuchet",
-    path = "j_yolk.png",
+    path = "j_trebuchet.png",
     px = 71,
     py = 95
 })
 
 SMODS.Atlas({
     key = "perkalator",
-    path = "j_can.png",
+    path = "j_perkalator.png",
     px = 71,
     py = 95
 })
