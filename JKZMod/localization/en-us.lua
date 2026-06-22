@@ -162,7 +162,8 @@ return {
                 name = "Trebuchet",
                 text = {
                     {
-                        'Trebuchet placeholder'
+                        "Played {C:attention}2{}s and {C:attention}3{}s",
+                        "gives {X:mult,C:white}+#1.5#{} Mult when scored",
                     }
                 },
             },
