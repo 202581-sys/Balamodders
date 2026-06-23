@@ -163,7 +163,7 @@ return {
                 text = {
                     {
                         "Played {C:attention}2s{} and {C:attention}3s{}",
-                        "gives {X:mult,C:white}X#1.5#{} Mult when scored",
+                        "gives {X:mult,C:white}X#1#{} Mult when scored",
                     }
                 },
             },
