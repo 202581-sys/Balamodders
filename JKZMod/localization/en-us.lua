@@ -35,6 +35,15 @@ return {
                     }
                 },
             },
+            j_jkzb_chick = {
+                name = "Chick",
+                text = {
+                    {
+                        "#1# in 2 chance to" ,
+                        "Disable boss blind",
+                    }
+                },
+            },
             j_jkzb_ethan = {
                 name = "Ethan",
                 text = {

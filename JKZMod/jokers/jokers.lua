@@ -93,6 +93,12 @@ SMODS.Atlas({
     px = 71,
     py = 95
 })
+SMODS.Atlas({
+    key = "chick",
+    path = "j_chick.png",
+    px = 71,
+    py = 95
+})
 
 
 SMODS.Joker{
@@ -487,12 +493,12 @@ SMODS.Joker {
         end
 
         if context.joker_main then
-            if not card.ability.extra.triggered then
-                card.ability.extra.triggered = true
-                return {
-                    Xmult_mod = card.ability.extra.mult,
-                    colour = G.C.MULT
-                }
-            end
+        if not card.ability.extra.triggered then
+        card.ability.extra.triggered = true
+            return {
+                Xmult_mod = card.ability.extra.mult,
+                colour = G.C.MULT
+            }
         end
-    }
+    end
+}
