@@ -83,7 +83,7 @@ return {
                     }
                 },
             },
-            j_yolk = {
+            j_jkzb_yolk = {
                 name = "Yolk",
                 text = {
                     {
