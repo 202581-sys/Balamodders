@@ -531,7 +531,7 @@ SMODS.Joker {
     end,
 
     calculate = function(self, card, context)
-        if context.joker_main -- adds score during scoring phase
+        if context.joker_main then -- adds score during scoring phase
             if card.ability.extra.mult > 0 then
                 return {
                     message = "+" .. card.ability.extra.mult .. " Mult",
@@ -539,7 +539,7 @@ SMODS.Joker {
                 }
             end
         end
-        if context.remove_playing_cards and not context.blueprint
+        if context.remove_playing_cards and not context.blueprint then
             local destroyed_count = #context.removed
             if destroyed_count > 0 then
                 card.ability.extra.mult = card.ability.extra.mult + destroyed_count
