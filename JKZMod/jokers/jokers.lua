@@ -424,13 +424,6 @@ SMODS.Joker{
 
         if #consumables > 0 then
 
-            -- 25% chance to do nothing
-            if pseudorandom('perkalator_fail') < 0.25 then
-                return {
-                    message = "Aw Dang It!"
-                }
-            end
-
             local chosen = pseudorandom_element(
                 consumables,
                 pseudoseed('perkalator')

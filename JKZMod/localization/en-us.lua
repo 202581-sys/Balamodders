@@ -78,7 +78,8 @@ return {
                 name = "Perkalator",
                 text = {
                     {
-                        "3 in 4 chance to create a copy of a random consumable"
+                        "Creates a copy of a random consumable",
+                        "in your consumable slot"
                     }
                 },
             },
