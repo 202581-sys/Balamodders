@@ -482,13 +482,17 @@ SMODS.Joker {
             end
         end
 
-        if context.joker_main then
-        if not card.ability.extra.triggered then
-        card.ability.extra.triggered = true
-            return {
-                Xmult_mod = card.ability.extra.mult,
-                colour = G.C.MULT
-            }
+        if context.before then
+            card.ability.extra.triggered = false
         end
-    end
-}
+
+        if context.joker_main then
+            if not card.ability.extra.triggered then
+                card.ability.extra.triggered = true
+                return {
+                    Xmult_mod = card.ability.extra.mult,
+                    colour = G.C.MULT
+                }
+            end
+        end
+    }
