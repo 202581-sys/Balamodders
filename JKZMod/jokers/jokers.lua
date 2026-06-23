@@ -543,7 +543,7 @@ SMODS.Joker {
         if context.remove_playing_cards and not context.blueprint then
             local destroyed_count = #context.removed
             if destroyed_count > 0 then
-                card.ability.extra.mult = card.ability.extra.mult + destroyed_count
+                card.ability.extra.mult = card.ability.extra.mult + (destroyed_count * 2)
                 return {
                     message = "+" .. destroyed_count .. " Mult!",
                     colour = G.C.MULT,

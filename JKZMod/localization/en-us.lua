@@ -103,6 +103,16 @@ return {
                     }
                 },
             },
+            j_jkzb_can = {
+                name = "Can"
+                text = {
+                    {
+                        "Gains {C:mult}+2{} Mult for"
+                        "every card destroyed."
+                        "Currently {C:mult}+#1#{} Mult"
+                    }
+                }
+            }
         }
     },
     misc = {
