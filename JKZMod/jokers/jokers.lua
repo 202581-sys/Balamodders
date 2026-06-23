@@ -502,3 +502,60 @@ SMODS.Joker {
         end
     end
 }
+
+SMODS.Joker{ 
+    key = "chick",
+    config = { extra = {  } },
+    pos = { x = 0, y = 0 },
+    rarity = 3,
+    cost = 10,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    effect = nil,
+    atlas = 'chick',
+    soul_pos = nil,
+
+    calculate = function(self,card,context)                 --define calculate functions here
+        if context.setting_blind and context.blind.boss and not context.blind.disabled then
+            if pseudorandom('jkzb_gambler_joker') < G.GAME.probabilities.normal / 2 then
+                G.GAME.blind:disable()
+                play_sound('timpani')
+                return {
+                    message = localize('ph_boss_disabled'),
+                    colour = G.C.FILTER
+                }
+            else 
+                return {
+                    message = "Nope!",
+                    colour = G.C.FILTER
+                }
+            end
+            
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+    if G.GAME.blind and G.GAME.blind.boss and not G.GAME.blind.disabled then
+           if  pseudorandom('jkzb_gambler_joker')< G.GAME.probabilities.normal/2 then --randomizes 1/2 chance
+                G.GAME.blind:disable()
+                play_sound('timpani')
+                card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('ph_boss_disabled')}) 
+                return {
+                    message = "Disabled!",
+                    colour = G.C.FILTER
+                }
+            else 
+                return {
+                    message = "Nope!",
+                    colour = G.C.FILTER
+                }
+            end
+        end
+    end,
+
+    loc_vars = function(self, info_queue, card)          
+        return { vars = {G.GAME.probabilities.normal } }
+    end
+
+}
