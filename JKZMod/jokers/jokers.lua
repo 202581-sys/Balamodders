@@ -508,6 +508,7 @@ SMODS.Joker {
             }
         end
     end
+    end
 }
 
 SMODS.Joker {
