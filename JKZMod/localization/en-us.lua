@@ -82,11 +82,13 @@ return {
                     }
                 },
             },
-            j_jkzb_yolk = {
+            j_yolk = {
                 name = "Yolk",
                 text = {
                     {
-                        'Yolk placeholder'
+                        "Gains {X:mult} X#1# {} Mult every",
+                        "{C:attention}#3#{} cards discarded",
+                        "(Currently {C:attention}#2#{} / #3#)"
                     }
                 },
             },
