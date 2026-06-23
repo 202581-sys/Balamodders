@@ -545,7 +545,7 @@ SMODS.Joker {
             if destroyed_count > 0 then
                 card.ability.extra.mult = card.ability.extra.mult + (destroyed_count * 2)
                 return {
-                    message = "+" .. destroyed_count .. " Mult!",
+                    message = "+" .. (destroyed_count * 2) .. " Mult!",
                     colour = G.C.MULT,
                     card = card
                 }
