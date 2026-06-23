@@ -87,9 +87,10 @@ return {
                 name = "Yolk",
                 text = {
                     {
-                        "Gains {X:mult,C:white} X#1# {} Mult every",
-                        "{C:attention}#3#{} cards discarded",
-                        "(Currently {C:attention}#2#{} / #3#)"
+                        "Gains {X:mult,C:white} X#1# {} Mult",
+                        "every {C:attention}#3#{} discards",
+                        "Current: {X:mult,C:white} X#1# {}",
+                        "Progress: {C:attention}#2#{} / #3#"
                     }
                 },
             },

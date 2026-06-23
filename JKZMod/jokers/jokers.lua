@@ -448,9 +448,10 @@ SMODS.Joker {
     pos = { x = 0, y = 0 },
     rarity = 3,
     cost = 10,
+    unlocked = true,
     blueprint_compat = true,
     eternal_compat = true,
-    config = { extra = { discards = 0, mult = 0.2, threshold = 23 } },
+    config = { extra = { discards = 0, mult = 1, threshold = 23 } },
     atlas = 'yolk',
 
     loc_vars = function(self, info_queue, card)
@@ -468,7 +469,7 @@ SMODS.Joker {
         -- Tracks discards
 
         if context.discard then
-            card.ability.extra.discards = card.ability.extra.discards + 0.2
+            card.ability.extra.discards = card.ability.extra.discards + 1
 
             if card.ability.extra.discards >= card.ability.extra.threshold then
                 card.ability.extra.discards = card.ability.extra.discards - card.ability.extra.threshold
