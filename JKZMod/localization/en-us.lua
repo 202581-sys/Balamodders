@@ -78,7 +78,7 @@ return {
                 name = "Perkalator",
                 text = {
                     {
-                        'Perkalator placeholder'
+                        "3 in 4 chance to create a copy of a random consumable"
                     }
                 },
             },
