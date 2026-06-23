@@ -485,6 +485,7 @@ SMODS.Joker {
         if context.joker_main then
             return {
                 Xmult_mod = card.ability.extra.mult
+                colour = G.C.RED
             }
         end
     end
