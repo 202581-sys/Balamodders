@@ -47,7 +47,7 @@ SMODS.Atlas({
 
 SMODS.Atlas({
     key = "gambler",
-    path = "j_jester.png",
+    path = "j_gambler.png",
     px = 71,
     py = 95
 })
@@ -90,6 +90,12 @@ SMODS.Atlas({
 SMODS.Atlas({
     key = "yolk",
     path = "j_yolk.png",
+    px = 71,
+    py = 95
+})
+SMODS.Atlas({
+    key = "chick",
+    path = "j_chick.png",
     px = 71,
     py = 95
 })
@@ -431,13 +437,6 @@ SMODS.Joker{
 
         if #consumables > 0 then
 
-            -- 25% chance to do nothing
-            if pseudorandom('perkalator_fail') < 0.25 then
-                return {
-                    message = "Aw Dang It!"
-                }
-            end
-
             local chosen = pseudorandom_element(
                 consumables,
                 pseudoseed('perkalator')
@@ -462,9 +461,11 @@ SMODS.Joker {
     pos = { x = 0, y = 0 },
     rarity = 3,
     cost = 10,
+    unlocked = true,
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = { discards = 0, mult = 1, threshold = 23 } },
+    atlas = 'yolk',
 
     loc_vars = function(self, info_queue, card)
         return {
@@ -485,7 +486,7 @@ SMODS.Joker {
 
             if card.ability.extra.discards >= card.ability.extra.threshold then
                 card.ability.extra.discards = card.ability.extra.discards - card.ability.extra.threshold
-                card.ability.extra.mult = card.ability.extra.mult + 1
+                card.ability.extra.mult = card.ability.extra.mult + 0.2
 
                 return {
                     message = "Level up!",
@@ -495,8 +496,11 @@ SMODS.Joker {
         end
 
         if context.joker_main then
+        if not card.ability.extra.triggered then
+        card.ability.extra.triggered = true
             return {
-                Xmult_mod = card.ability.extra.mult
+                Xmult_mod = card.ability.extra.mult,
+                colour = G.C.MULT
             }
         end
     end
@@ -545,4 +549,60 @@ SMODS.Joker {
             end
         end
     end
+}
+
+SMODS.Joker{ 
+    key = "chick",
+    pos = { x = 0, y = 0 },
+    rarity = 3,
+    cost = 10,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    effect = nil,
+    atlas = 'chick',
+    soul_pos = nil,
+
+    calculate = function(self,card,context)                 --define calculate functions here
+        if context.setting_blind and context.blind.boss and not context.blind.disabled then
+            if pseudorandom('jkzb_gambler_joker') < G.GAME.probabilities.normal / 2 then
+                G.GAME.blind:disable()
+                play_sound('timpani')
+                return {
+                    message = localize('ph_boss_disabled'),
+                    colour = G.C.FILTER
+                }
+            else 
+                return {
+                    message = "Nope!",
+                    colour = G.C.FILTER
+                }
+            end
+            
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+    if G.GAME.blind and G.GAME.blind.boss and not G.GAME.blind.disabled then
+           if  pseudorandom('jkzb_gambler_joker')< G.GAME.probabilities.normal/2 then --randomizes 1/2 chance
+                G.GAME.blind:disable()
+                play_sound('timpani')
+                card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('ph_boss_disabled')}) 
+                return {
+                    message = "Disabled!",
+                    colour = G.C.FILTER
+                }
+            else 
+                return {
+                    message = "Nope!",
+                    colour = G.C.FILTER
+                }
+            end
+        end
+    end,
+
+    loc_vars = function(self, info_queue, card)          
+        return { vars = {G.GAME.probabilities.normal } }
+    end
+
 }

@@ -35,6 +35,15 @@ return {
                     }
                 },
             },
+            j_jkzb_chick = {
+                name = "Chick",
+                text = {
+                    {
+                        "#1# in 2 chance to" ,
+                        "Disable boss blind",
+                    }
+                },
+            },
             j_jkzb_ethan = {
                 name = "Ethan",
                 text = {
@@ -78,7 +87,8 @@ return {
                 name = "Perkalator",
                 text = {
                     {
-                        "3 in 4 chance to create a copy of a random consumable"
+                        "Creates a copy of a random consumable",
+                        "in your consumable slot"
                     }
                 },
             },
@@ -86,7 +96,10 @@ return {
                 name = "Yolk",
                 text = {
                     {
-                        'Yolk placeholder'
+                        "Gains {X:mult,C:white} X#1# {} Mult",
+                        "every {C:attention}#3#{} discards",
+                        "Current: {X:mult,C:white} X#1# {}",
+                        "Progress: {C:attention}#2#{} / #3#"
                     }
                 },
             },
