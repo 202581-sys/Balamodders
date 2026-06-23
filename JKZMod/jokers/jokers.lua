@@ -464,7 +464,7 @@ SMODS.Joker {
     unlocked = true,
     blueprint_compat = true,
     eternal_compat = true,
-    config = { extra = { discards = 0, mult = 1, threshold = 23 } },
+    config = { extra = { discards = 0, mult = 1, threshold = 23, triggered = false} },
     atlas = 'yolk',
 
     loc_vars = function(self, info_queue, card)
@@ -493,6 +493,10 @@ SMODS.Joker {
                     colour = G.C.MULT
                 }
             end
+        end
+
+        if context.before then
+            card.ability.extra.triggered = false
         end
 
         if context.joker_main then
@@ -604,5 +608,4 @@ SMODS.Joker{
     loc_vars = function(self, info_queue, card)          
         return { vars = {G.GAME.probabilities.normal } }
     end
-
 }
