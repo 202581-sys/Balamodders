@@ -175,6 +175,14 @@ return {
                     }
                 },
             },
+            j_jkzb_yolk = {
+                name = "Yolk",
+                text = {
+                    {
+                        'Yolk placeholder'
+                    }
+                },
+            },
         }
     },
     misc = {

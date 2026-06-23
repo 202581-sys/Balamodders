@@ -87,6 +87,13 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "yolk",
+    path = "j_yolk.png",
+    px = 71,
+    py = 95
+})
+
 
 SMODS.Joker{
     key = "sample_wee",                                     --name used by the joker.    
@@ -441,4 +448,49 @@ SMODS.Joker{
         end
     end
 end
+}
+
+SMODS.Joker {
+    key = "yolk",
+    pos = { x = 0, y = 0 },
+    rarity = 3,
+    cost = 10,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = { discards = 0, mult = 1, threshold = 23 } },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.mult,
+                card.ability.extra.discards,
+                card.ability.extra.threshold
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+
+        -- Tracks discards
+
+        if context.discard then
+            card.ability.extra.discards = card.ability.extra.discards + 1
+
+            if card.ability.extra.discards >= card.ability.extra.threshold then
+                card.ability.extra.discards = card.ability.extra.discards - card.ability.extra.threshold
+                card.ability.extra.mult = card.ability.extra.mult + 1
+
+                return {
+                    message = "Level up!",
+                    colour = G.C.MULT
+                }
+            end
+        end
+
+        if context.joker_main then
+            return {
+                Xmult_mod = card.ability.extra.mult
+            }
+        end
+    end
 }
