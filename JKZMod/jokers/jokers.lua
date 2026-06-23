@@ -527,9 +527,7 @@ SMODS.Joker {
 
     loc_vars = function(self, info_queue, card)
         return {
-            vars = {
-                return { vars = { card.ability.extra.mult } }
-            }
+            vars = { card.ability.extra.mult }
         }
     end,
 
