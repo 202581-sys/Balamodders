@@ -94,6 +94,13 @@ SMODS.Atlas({
     py = 95
 })
 
+SMODS.Atlas({
+    key = "can",
+    path = "j_can.png",
+    px = 71,
+    py = 95
+})
+
 
 SMODS.Joker{
     key = "sample_wee",                                     --name used by the joker.    
@@ -491,6 +498,51 @@ SMODS.Joker {
             return {
                 Xmult_mod = card.ability.extra.mult
             }
+        end
+    end
+}
+
+SMODS.Joker {
+    key = "can",
+    pos = { x = 0, y = 0 },
+    rarity = 3,
+    cost = 10,
+    blueprint_compat = true,
+    eternal_compat = true,
+    unlocked = true,
+    discovered = true,
+    effect = nil,
+    atlas = 'can',
+    soul_pos = nil,
+    config = { extra = { mult = 0 } },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                return { vars = { card.ability.extra.mult } }
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main -- adds score during scoring phase
+            if card.ability.extra.mult > 0 then
+                return {
+                    message = "+" .. card.ability.extra.mult .. " Mult",
+                    mult_mod = card.ability.extra.mult
+                }
+            end
+        end
+        if context.remove_playing_cards and not context.blueprint
+            local destroyed_count = #context.removed
+            if destroyed_count > 0 then
+                card.ability.extra.mult = card.ability.extra.mult + destroyed_count
+                return {
+                    message = "+" .. destroyed_count .. " Mult!",
+                    colour = G.C.MULT,
+                    card = card
+                }
+            end
         end
     end
 }
