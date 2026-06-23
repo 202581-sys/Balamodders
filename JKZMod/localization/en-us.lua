@@ -30,7 +30,7 @@ return {
                 name = "Gambler",
                 text = {
                     {
-                        "1 in 4 chance for" ,
+                        "#2# in 4 chance for" ,
                         "{X:mult,C:white}X#1#{} Mult",
                     }
                 },
