@@ -503,6 +503,7 @@ SMODS.Joker {
         if not card.ability.extra.triggered then
         card.ability.extra.triggered = true
             return {
+                message = "X" .. string.format("%.2f", card.ability.extra.mult):gsub("%.?0+$", ""),
                 Xmult_mod = card.ability.extra.mult,
                 colour = G.C.MULT
             }
@@ -579,7 +580,7 @@ SMODS.Joker{
                 }
             else 
                 return {
-                    message = "Nope!",
+                    message = "Aw Dang It!",
                     colour = G.C.FILTER
                 }
             end
