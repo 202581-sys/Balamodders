@@ -451,7 +451,7 @@ SMODS.Joker {
     unlocked = true,
     blueprint_compat = true,
     eternal_compat = true,
-    config = { extra = { discards = 0, mult = 1, threshold = 23 } },
+    config = { extra = { discards = 0, mult = 1, threshold = 23, triggered = false} },
     atlas = 'yolk',
 
     loc_vars = function(self, info_queue, card)
